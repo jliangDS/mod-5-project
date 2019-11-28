@@ -3,7 +3,7 @@ class CartsController < ApplicationController
     def create
         if(cart_params[:user_id] == self.current_user.id)
             cart = Cart.create(cart_params)
-            render json: cart, include: [ :user, :item ]
+            render json: cart, include: [ :item ]
         else
             render json: { error: true, message: 'You cannot add to cart for someone else'}
         end
