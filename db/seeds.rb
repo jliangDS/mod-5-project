@@ -4,6 +4,7 @@ User.destroy_all
 
 User.create( { name: 'josh', password: '1234' })
 
+
 Item.create( { name: '1200 PIECE JIGSAW PUZZLE', image: 'https://react.semantic-ui.com/images/wireframe/image.png', price: 19.99 })
 Item.create( { name: 'ETCH A SKETCH', image: 'https://react.semantic-ui.com/images/wireframe/image.png', price: 21.99 })
 Item.create( { name: 'FINGER PAINTING KIT', image: 'https://react.semantic-ui.com/images/wireframe/image.png', price: 15.95 })
