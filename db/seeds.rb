@@ -1,12 +1,9 @@
+Cart.destroy_all
+Item.destroy_all
 User.destroy_all
 
-Item.destroy_all
-Cart.destroy_all
+User.create( { name: 'josh', password: '1234' })
 
-User.create( { name: 'user', password: 'pass' })
-
-Cart.create( { user_id: 1, item_id: 1 })
-Cart.create( { user_id: 1, item_id: 1 })
 Item.create( { name: '1200 PIECE JIGSAW PUZZLE', image: 'https://react.semantic-ui.com/images/wireframe/image.png', price: 19.99 })
 Item.create( { name: 'ETCH A SKETCH', image: 'https://react.semantic-ui.com/images/wireframe/image.png', price: 21.99 })
 Item.create( { name: 'FINGER PAINTING KIT', image: 'https://react.semantic-ui.com/images/wireframe/image.png', price: 15.95 })
