@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2019_11_30_065530) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
+    t.string "fullName"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "phone"
+    t.string "country"
+    t.text "items"
+    t.boolean "complete"
   end
 
   create_table "users", force: :cascade do |t|

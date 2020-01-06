@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources(:users)
   resources(:items)
   resources(:carts)
-
+  resources(:orders)
+  resources(:charges)
+  
   post('/login', to: 'authentication#login')
 end
