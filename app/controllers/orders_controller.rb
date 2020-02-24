@@ -12,16 +12,16 @@ class OrdersController < ApplicationController
         end
     end
 
+    def show 
+        orders = Order.where("user_id = :user_id and  complete = :complete", { user_id: params[:id], complete: true })
+        render json: orders 
+    end 
+
     def update
-        # if(order_params[:user_id] == self.current_user.id)
-        #     user = User.find(self.current_user.id)
-            order = Order.find(params[:id])
-            order.complete = true 
-            order.save
-            render json: order
-        # else
-        #     render json: { error: true, message: 'You cannot compete an order for someone else'}
-        # end
+        order = Order.find(params[:id])
+        order.complete = true 
+        order.save
+        render json: order
     end
 
     def order_params
