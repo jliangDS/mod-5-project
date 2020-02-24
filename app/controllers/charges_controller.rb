@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
 
     def create
 
-        Stripe.api_key = 'sk_test_RpZ98JKJWMCKmQk2DniXQgM300vA67J48Y'
+        Stripe.api_key = 'sk_test_key'
 
         begin
             Stripe::Charge.create({
