@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_11_30_065530) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
+    t.string "email"
     t.string "fullName"
     t.string "address"
     t.string "city"
