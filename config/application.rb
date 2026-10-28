@@ -35,3 +35,29 @@ module RailsBackend
     config.api_only = true
   end
 end
+module YourAppName
+  class Application < Rails::Application
+    # ... your existing configuration lines ...
+
+    # Fix Psych::AliasesNotEnabled error on Ruby 3.3+
+    config.shared_automounts = true if respond_to?(:shared_automounts=)
+    
+    # Overwrite the default YAML parser behavior for database configuration
+    initializer "fix_yaml_aliases", before: "active_record.initialize_database" do
+      require 'yaml'
+      # Forces Psych to accept YAML aliases globally across standard safe_load contexts
+      if defined?(Psych) && Psych.respond_to?(:safe_load)
+        module ::Psych
+          class << self
+            alias_method :original_safe_load, :safe_load
+            def safe_load(yaml, *args, **kwargs)
+              kwargs[:aliases] = true
+              original_safe_load(yaml, *args, **kwargs)
+            end
+          end
+        end
+      end
+    end
+
+  end
+end
